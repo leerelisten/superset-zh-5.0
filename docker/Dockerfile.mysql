@@ -1,0 +1,11 @@
+FROM apache/superset:5.0.0
+
+USER root
+
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+     pkg-config \
+     default-libmysqlclient-dev \
+  && rm -rf /var/lib/apt/lists/*
+
+USER superset
